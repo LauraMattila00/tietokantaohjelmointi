@@ -80,8 +80,8 @@ create table tilaus (
 tilausnro INTEGER NOT NULL PRIMARY KEY,
 asid CHAR(6) NOT NULL, 
 tilauspvm DATETIME NOT NULL,
-toimitustapa CHAR(1) NOT NULL,
-tila CHAR(1),
+toimitustapa CHAR(25) NOT NULL,
+tila CHAR(25),
 CONSTRAINT tilaus_asiakas_fk FOREIGN KEY (asid) 
 	REFERENCES asiakas (asid)
 );
