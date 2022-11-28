@@ -15,14 +15,17 @@ INSERT INTO tuoteryhma VALUES (13,'Tietokirjat');
 INSERT INTO tuoteryhma VALUES (14,'Oppikirjat');		
 INSERT INTO tuoteryhma VALUES (15,'Pelit');
 
+
+
+/*muutettu tuote taulu*/
 create table tuote (
     tuotenro INTEGER PRIMARY KEY AUTO_INCREMENT,
     tuotenimi CHAR(50) NOT NULL UNIQUE,
     hinta DECIMAL(5,2),
     kustannus DECIMAL(5,2),
-    trnro INTEGER NOT NULL,
-    CONSTRAINT tuote_tuoteryhma_fk FOREIGN KEY (trnro) 
-       REFERENCES tuoteryhma (trnro)
+    trnro SMALLINT NOT NULL,
+    CONSTRAINT tuote_ryhma_fk FOREIGN KEY (trnro) 
+           REFERENCES tuoteryhma (trnro)
 );
 
 INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut',21.95,10.00,11) ;
@@ -54,15 +57,22 @@ salasana VARCHAR (50) NOT NULL,
 puhnro INT (20) NOT NULL UNIQUE
 );
 
-CREATE TABLE posti	(
-
+CREATE TABLE posti	
+(asid FOREIGN KEY
+    REFERENCES asiakas (asid),
+postinro CHAR (5) PRIMARY KEY,
 osoite VARCHAR(50) NOT NULL,
 postitmp CHAR(10),
-postinro CHAR (5) PRIMARY KEY,
-asid CHAR(6),
-CONSTRAINT posti_asiakas_fk FOREIGN KEY (asid)
-    REFERENCES asiakas (asid)
+postinro CHAR(5), 
+
 );
+    INSERT INTO posti VALUES ('Raitamäentie 14','Helsinki','00950','1');	
+     INSERT INTO posti VALUES ('Peltolankaari 11', 'Oulu', '90230','2');	
+    INSERT INTO posti VALUES ('Polettikuja 3', 'Oulu', '90420','3');	
+     INSERT INTO posti VALUES ('Väinönkatu  15 ', 'Jyväskylä', '40100','4');	
+    INSERT INTO posti VALUES ('Perhostie 9', 'Vaasa', '65230','5');	
+     INSERT INTO posti VALUES ('Konttilukinkatu 23', 'Tampere', '23900','6');	
+     INSERT INTO posti VALUES ('Korkalonkatu 17', 'Rovaniemi', '96200','7');
 
 INSERT INTO asiakas VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22',0469452622);	 
 INSERT INTO asiakas VALUES ('2','Matti Meikäläinen','mattimeikäläinen@gmail.com','HuomentaSuomi71',0448786456);	
@@ -128,3 +138,5 @@ INSERT INTO tilausrivi VALUES (22,109,8,2);
 INSERT INTO tilausrivi VALUES (23,109,15,1);	
 INSERT INTO tilausrivi VALUES (24,110,7,1);	
 INSERT INTO tilausrivi VALUES (25,110,9,2);	
+
+
