@@ -1,5 +1,3 @@
--- KESKEN JA TARKISTAMATTA
-
 drop database if exists kirjamaailma;
 create database kirjamaailma;
 use kirjamaailma;
@@ -15,15 +13,12 @@ INSERT INTO tuoteryhma VALUES (13,'Tietokirjat');
 INSERT INTO tuoteryhma VALUES (14,'Oppikirjat');		
 INSERT INTO tuoteryhma VALUES (15,'Pelit');
 
-
-
-/*muutettu tuote taulu*/
 create table tuote (
     tuotenro INTEGER PRIMARY KEY AUTO_INCREMENT,
     tuotenimi CHAR(50) NOT NULL UNIQUE,
     hinta DECIMAL(5,2),
     kustannus DECIMAL(5,2),
-    trnro SMALLINT NOT NULL,
+    trnro INTEGER NOT NULL,
     CONSTRAINT tuote_ryhma_fk FOREIGN KEY (trnro) 
            REFERENCES tuoteryhma (trnro)
 );
@@ -57,14 +52,13 @@ salasana VARCHAR (50) NOT NULL,
 puhnro INT (20) NOT NULL UNIQUE
 );
 
-CREATE TABLE posti	
-(asid FOREIGN KEY
-    REFERENCES asiakas (asid),
-postinro CHAR (5) PRIMARY KEY,
-osoite VARCHAR(50) NOT NULL,
-postitmp CHAR(10),
-postinro CHAR(5), 
-
+CREATE TABLE posti	(
+FOREIGN KEY (asid)
+REFERENCES asiakas (asid),
+osoite VARCHAR(50) PRIMARY KEY,
+postitmp CHAR(50) NOT NULL,
+postinro CHAR(5) NOT NULL,
+asid CHAR(6) NOT NULL UNIQUE
 );
     INSERT INTO posti VALUES ('Raitamäentie 14','Helsinki','00950','1');	
      INSERT INTO posti VALUES ('Peltolankaari 11', 'Oulu', '90230','2');	
