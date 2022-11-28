@@ -6,28 +6,28 @@ use kirjamaailma;
 
 create table tuoteryhma (
     trnro INTEGER PRIMARY KEY AUTO_INCREMENT,
-    trnimi CHAR(50) NOT NULL UNIQUE,
+    trnimi CHAR(50) NOT NULL UNIQUE
 );
 
-INSERT INTO tuoteryhma VALUES (11,'Lastenkirjat')		
+INSERT INTO tuoteryhma VALUES (11,'Lastenkirjat');		
 INSERT INTO tuoteryhma VALUES (12,'Kaunokirjallisuus');		
 INSERT INTO tuoteryhma VALUES (13,'Tietokirjat');		
 INSERT INTO tuoteryhma VALUES (14,'Oppikirjat');		
-INSERT INTO tuoteryhma VALUES (11,'Pelit');
+INSERT INTO tuoteryhma VALUES (15,'Pelit');
 
 create table tuote (
     tuotenro INTEGER PRIMARY KEY AUTO_INCREMENT,
     tuotenimi CHAR(50) NOT NULL UNIQUE,
     hinta DECIMAL(5,2),
     kustannus DECIMAL(5,2),
-    trnro SMALLINT NOT NULL,
-    CONSTRAINT tuote_ryhma_fk FOREIGN KEY (trnro) 
-           REFERENCES tuoteryhma (trnro)
+    trnro INTEGER NOT NULL,
+    CONSTRAINT tuote_tuoteryhma_fk FOREIGN KEY (trnro) 
+       REFERENCES tuoteryhma (trnro)
 );
 
 INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut',21.95,10.00,11) ;
 INSERT INTO tuote VALUES (2,'Risto Räppääjä ja lapsenvahti',19.95,8.00,11) ;
-INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu',12,95,5.00,11) ;
+INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu',12.95,5.00,11) ;
 INSERT INTO tuote VALUES (4,'Älysatukirja Miina ja Manu eksyksissä',7.95,3.00,11) ;
 INSERT INTO tuote VALUES (5,'Hämähakki',27.95,15.00,12) ;
 INSERT INTO tuote VALUES (6,'Auroran salaisuus',27.95,15.00,12) ;
@@ -51,17 +51,17 @@ asid CHAR(6) PRIMARY KEY,
 asnimi CHAR(20) NOT NULL,
 sposti VARCHAR(50) NOT NULL UNIQUE,
 salasana VARCHAR (50) NOT NULL,
-puhnro INT (20) NOT NULL UNIQUE,
+puhnro INT (20) NOT NULL UNIQUE
 );
 
-CREATE TABLE posti	
-(asid FOREIGN KEY
-    REFERENCES asiakas (asid),
-postinro CHAR (5) PRIMARY KEY,
+CREATE TABLE posti	(
+
 osoite VARCHAR(50) NOT NULL,
 postitmp CHAR(10),
-postinro CHAR(5), 
-
+postinro CHAR (5) PRIMARY KEY,
+asid CHAR(6),
+CONSTRAINT posti_asiakas_fk FOREIGN KEY (asid)
+    REFERENCES asiakas (asid)
 );
 
 INSERT INTO asiakas VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22',0469452622);	 
@@ -76,22 +76,22 @@ create table tilaus (
 tilausnro INTEGER NOT NULL PRIMARY KEY,
 asid CHAR(6) NOT NULL, 
 tilauspvm DATETIME NOT NULL,
-tapa CHAR(1) NOT NULL,
+toimitustapa CHAR(1) NOT NULL,
 tila CHAR(1),
 CONSTRAINT tilaus_asiakas_fk FOREIGN KEY (asid) 
-           REFERENCES asiakas (asid)
+	REFERENCES asiakas (asid)
 );
 
-INSERT INTO tilaus VALUES (101,'1','2022-11-20','V','Posti','Maksettu');							
-INSERT INTO tilaus VALUES (102,'4','2022-11-01','V','DB schenker','Ei maksettu');							
-INSERT INTO tilaus VALUES (103,'7','2022-11-14','V','Posti','Ei maksettu');							
-INSERT INTO tilaus VALUES (104,'3','2022-11-03','V','Posti','Maksettu');							
-INSERT INTO tilaus VALUES (105,'6','2022-11-17','V','Posti','Maksettu');							
-INSERT INTO tilaus VALUES (106,'2','2022-11-21','V','DB schenker','Maksettu');							
-INSERT INTO tilaus VALUES (107,'1','2022-11-06','V','Posti','Ei maksettu');							
-INSERT INTO tilaus VALUES (108,'5','2022-11-18','V','DB schenker','Maksettu');							
-INSERT INTO tilaus VALUES (109,'3','2022-11-20','V','Posti','Maksettu');							
-INSERT INTO tilaus VALUES (110,'4','2022-11-17','V','DB schenker','Maksettu');							
+INSERT INTO tilaus VALUES (101,'1','2022-11-20','Posti','Maksettu');							
+INSERT INTO tilaus VALUES (102,'4','2022-11-01','DB schenker','Ei maksettu');							
+INSERT INTO tilaus VALUES (103,'7','2022-11-14','Posti','Ei maksettu');							
+INSERT INTO tilaus VALUES (104,'3','2022-11-03','Posti','Maksettu');							
+INSERT INTO tilaus VALUES (105,'6','2022-11-17','Posti','Maksettu');							
+INSERT INTO tilaus VALUES (106,'2','2022-11-21','DB schenker','Maksettu');							
+INSERT INTO tilaus VALUES (107,'1','2022-11-06','Posti','Ei maksettu');							
+INSERT INTO tilaus VALUES (108,'5','2022-11-18','DB schenker','Maksettu');							
+INSERT INTO tilaus VALUES (109,'3','2022-11-20','Posti','Maksettu');							
+INSERT INTO tilaus VALUES (110,'4','2022-11-17','DB schenker','Maksettu');							
 
 create table tilausrivi (
 tilausnro INTEGER NOT NULL,
