@@ -60,13 +60,6 @@ postitmp CHAR(50) NOT NULL,
 postinro CHAR(5) NOT NULL,
 asid CHAR(6) NOT NULL UNIQUE
 );
-    INSERT INTO posti VALUES ('Raitamäentie 14','Helsinki','00950','1');	
-     INSERT INTO posti VALUES ('Peltolankaari 11', 'Oulu', '90230','2');	
-    INSERT INTO posti VALUES ('Polettikuja 3', 'Oulu', '90420','3');	
-     INSERT INTO posti VALUES ('Väinönkatu  15 ', 'Jyväskylä', '40100','4');	
-    INSERT INTO posti VALUES ('Perhostie 9', 'Vaasa', '65230','5');	
-     INSERT INTO posti VALUES ('Konttilukinkatu 23', 'Tampere', '23900','6');	
-     INSERT INTO posti VALUES ('Korkalonkatu 17', 'Rovaniemi', '96200','7');
 
 INSERT INTO asiakas VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22',0469452622);	 
 INSERT INTO asiakas VALUES ('2','Matti Meikäläinen','mattimeikäläinen@gmail.com','HuomentaSuomi71',0448786456);	
@@ -74,7 +67,15 @@ INSERT INTO asiakas VALUES ('3','Maija Tepponen','maijatepponen@gmail.com','Hele
 INSERT INTO asiakas VALUES ('4','Kalle Kaljasieppo','kallekaljasieppo@gmail.com','Qwerty2022',0453735634); 	
 INSERT INTO asiakas VALUES ('5','Petra Karjalainen','petrakarjalainen12@gmail.com','Salasana1234',0449383233); 	
 INSERT INTO asiakas VALUES ('6','Irma Heikkilä','irmaheikkilä@gmail.com','IrmaHeikkilä1970',0412448899); 	
-INSERT INTO asiakas VALUES ('7','Jussi Korhonen','jussikorhonen@gmail.com','JussiNPassWorD2020',0462137845); 	
+INSERT INTO asiakas VALUES ('7','Jussi Korhonen','jussikorhonen@gmail.com','JussiNPassWorD2020',0462137845);
+
+INSERT INTO posti VALUES ('Raitamäentie 14','Helsinki','00950','1');	
+INSERT INTO posti VALUES ('Peltolankaari 11', 'Oulu', '90230','2');	
+INSERT INTO posti VALUES ('Polettikuja 3', 'Oulu', '90420','3');	
+INSERT INTO posti VALUES ('Väinönkatu  15 ', 'Jyväskylä', '40100','4');	
+INSERT INTO posti VALUES ('Perhostie 9', 'Vaasa', '65230','5');	
+INSERT INTO posti VALUES ('Konttilukinkatu 23', 'Tampere', '23900','6');	
+INSERT INTO posti VALUES ('Korkalonkatu 17', 'Rovaniemi', '96200','7');
 
 create table tilaus (
 tilausnro INTEGER NOT NULL PRIMARY KEY,
