@@ -16,6 +16,7 @@ INSERT INTO tuoteryhma VALUES (15,'Pelit');
 create table tuote (
     tuotenro INTEGER PRIMARY KEY AUTO_INCREMENT,
     tuotenimi CHAR(50) NOT NULL UNIQUE,
+    kuva VARCHAR(100),
     hinta DECIMAL(5,2),
     kustannus DECIMAL(5,2),
     trnro INTEGER NOT NULL,
@@ -41,7 +42,7 @@ INSERT INTO tuote VALUES (15,'Särmä kielenhuolto',15.95,6.00,14) ;
 INSERT INTO tuote VALUES (16,'Mooli 1',19.95,9.00,14) ;
 INSERT INTO tuote VALUES (17,'Bananagrams sanapeli',15.95,6.00,15) ;
 INSERT INTO tuote VALUES (18,'Escape room family jungle perhepeli',39.95,20.00,15) ;
-INSERT INTO tuote VALUES (19,'Orginal Alias',27.95,15.00,15) ;
+INSERT INTO tuote VALUES (19,'Original Alias',27.95,15.00,15) ;
 INSERT INTO tuote VALUES (20,'Vink',39.95,20.00,15) ;
 
 create table asiakas (
