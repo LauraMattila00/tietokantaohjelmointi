@@ -24,26 +24,26 @@ create table tuote (
            REFERENCES tuoteryhma (trnro)
 );
 
-INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut',21.95,10.00,11) ;
-INSERT INTO tuote VALUES (2,'Risto Räppääjä ja lapsenvahti',19.95,8.00,11) ;
-INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu',12.95,5.00,11) ;
-INSERT INTO tuote VALUES (4,'Älysatukirja Miina ja Manu eksyksissä',7.95,3.00,11) ;
-INSERT INTO tuote VALUES (5,'Hämähakki',27.95,15.00,12) ;
-INSERT INTO tuote VALUES (6,'Auroran salaisuus',27.95,15.00,12) ;
-INSERT INTO tuote VALUES (7,'Sysimusta sydän',28.95,16.00,12) ;
-INSERT INTO tuote VALUES (8,'Mielensäpahoittajan rakkaustarina',25.95,14.00,12) ;
-INSERT INTO tuote VALUES (9,'Kirjosukkakirja',27.95,15.00,13) ;
-INSERT INTO tuote VALUES (10,'Aivokirurgin muistelmat',30.95,19.00,13) ;
-INSERT INTO tuote VALUES (11,'Mitä Missä Milloin 2023',17.95,6.00,13) ;
-INSERT INTO tuote VALUES (12,'Muistijumppaa',21.95,10.00,13) ;
-INSERT INTO tuote VALUES (13,'MAOL-taulukot',41.95,21.00,14) ;
-INSERT INTO tuote VALUES (14,'Abi fysiikka',39.95,20.00,14) ;
-INSERT INTO tuote VALUES (15,'Särmä kielenhuolto',15.95,6.00,14) ;
-INSERT INTO tuote VALUES (16,'Mooli 1',19.95,9.00,14) ;
-INSERT INTO tuote VALUES (17,'Bananagrams sanapeli',15.95,6.00,15) ;
-INSERT INTO tuote VALUES (18,'Escape room family jungle perhepeli',39.95,20.00,15) ;
-INSERT INTO tuote VALUES (19,'Original Alias',27.95,15.00,15) ;
-INSERT INTO tuote VALUES (20,'Vink',39.95,20.00,15) ;
+INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut','1-pipsa-possu.png',21.95,10.00,11) ;
+INSERT INTO tuote VALUES (2,'Risto Räppääjä ja lapsenvahti','2-risto-rappaaja.jpg',19.95,8.00,11) ;
+INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu','3-joulupukki.jpg',12.95,5.00,11) ;
+INSERT INTO tuote VALUES (4,'Älysatukirja Miina ja Manu eksyksissä','4-miinamanu.jpg',7.95,3.00,11) ;
+INSERT INTO tuote VALUES (5,'Hämähakki','5-hamahakki.jpg',27.95,15.00,12) ;
+INSERT INTO tuote VALUES (6,'Auroran salaisuus','6-auroran-salaisuus.jpg',27.95,15.00,12) ;
+INSERT INTO tuote VALUES (7,'Sysimusta sydän','7-sysimusta-sydan.jpg',28.95,16.00,12) ;
+INSERT INTO tuote VALUES (8,'Mielensäpahoittajan rakkaustarina','8-mielensapahoittaja.jpg',25.95,14.00,12) ;
+INSERT INTO tuote VALUES (9,'Kirjosukkakirja','9-kirjosukkakirja.jpg',27.95,15.00,13) ;
+INSERT INTO tuote VALUES (10,'Aivokirurgin muistelmat','10-aivokirurgi.jpg',30.95,19.00,13) ;
+INSERT INTO tuote VALUES (11,'Mitä Missä Milloin 2023','11-mita-missa-milloin.jpg',17.95,6.00,13) ;
+INSERT INTO tuote VALUES (12,'Muistijumppaa','12-muistijumppaa.jpg',21.95,10.00,13) ;
+INSERT INTO tuote VALUES (13,'MAOL-taulukot','13-maol.jpg',41.95,21.00,14) ;
+INSERT INTO tuote VALUES (14,'Abi fysiikka','14-abi-fysiikka.jpg',39.95,20.00,14) ;
+INSERT INTO tuote VALUES (15,'Särmä kielenhuolto','15-sarma.jpg',15.95,6.00,14) ;
+INSERT INTO tuote VALUES (16,'Mooli 1','16-mooli1.jpg',19.95,9.00,14) ;
+INSERT INTO tuote VALUES (17,'Bananagrams sanapeli','17-banagrams.jpg',15.95,6.00,15) ;
+INSERT INTO tuote VALUES (18,'Escape room family jungle perhepeli','18-escape-room.jpg',39.95,20.00,15) ;
+INSERT INTO tuote VALUES (19,'Original Alias','19-alias.jpg',27.95,15.00,15) ;
+INSERT INTO tuote VALUES (20,'Vink','20-vink.jpg',39.95,20.00,15) ;
 
 create table asiakas (
 asid CHAR(6) PRIMARY KEY,
