@@ -24,7 +24,7 @@ create table tuote (
            REFERENCES tuoteryhma (trnro)
 );
 
-INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut','1-pipsa-possu.png',21.95,10.00,11) ;
+INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut','1-pipsa-possu.jpg',21.95,10.00,11) ;
 INSERT INTO tuote VALUES (2,'Risto Räppääjä ja lapsenvahti','2-risto-rappaaja.jpg',19.95,8.00,11) ;
 INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu','3-joulupukki.jpg',12.95,5.00,11) ;
 INSERT INTO tuote VALUES (4,'Älysatukirja Miina ja Manu eksyksissä','4-miinamanu.jpg',7.95,3.00,11) ;
