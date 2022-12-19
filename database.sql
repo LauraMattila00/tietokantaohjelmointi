@@ -137,10 +137,3 @@ INSERT INTO tilausrivi VALUES (24,110,7,1);
 INSERT INTO tilausrivi VALUES (25,110,9,2);	
 
 
-CREATE TABLE newuser(
-    userid int (12) AUTO_INCREMENT,
-    email VARCHAR (100) UNIQUE NOT NULL,
-    password VARCHAR (100) NOT NULL,
-CONSTRAINT PK_USER PRIMARY KEY (userid));
-
-INSERT INTO newuser VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22');
