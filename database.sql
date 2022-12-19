@@ -20,30 +20,31 @@ create table tuote (
     hinta DECIMAL(5,2),
     kustannus DECIMAL(5,2),
     trnro INTEGER NOT NULL,
+    teksti VARCHAR(255),
     CONSTRAINT tuote_ryhma_fk FOREIGN KEY (trnro) 
            REFERENCES tuoteryhma (trnro)
 );
 
-INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut','1-pipsa-possu.jpg',21.95,10.00,11) ;
-INSERT INTO tuote VALUES (2,'Risto Räppääjä ja lapsenvahti','2-risto-rappaaja.jpg',19.95,8.00,11) ;
-INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu','3-joulupukki.jpg',12.95,5.00,11) ;
-INSERT INTO tuote VALUES (4,'Älysatukirja Miina ja Manu eksyksissä','4-miinamanu.jpg',7.95,3.00,11) ;
-INSERT INTO tuote VALUES (5,'Hämähakki','5-hamahakki.jpg',27.95,15.00,12) ;
-INSERT INTO tuote VALUES (6,'Auroran salaisuus','6-auroran-salaisuus.jpg',27.95,15.00,12) ;
-INSERT INTO tuote VALUES (7,'Sysimusta sydän','7-sysimusta-sydan.jpg',28.95,16.00,12) ;
-INSERT INTO tuote VALUES (8,'Mielensäpahoittajan rakkaustarina','8-mielensapahoittaja.jpg',25.95,14.00,12) ;
-INSERT INTO tuote VALUES (9,'Kirjosukkakirja','9-kirjosukkakirja.jpg',27.95,15.00,13) ;
-INSERT INTO tuote VALUES (10,'Aivokirurgin muistelmat','10-aivokirurgi.jpg',30.95,19.00,13) ;
-INSERT INTO tuote VALUES (11,'Mitä Missä Milloin 2023','11-mita-missa-milloin.jpg',17.95,6.00,13) ;
-INSERT INTO tuote VALUES (12,'Muistijumppaa','12-muistijumppaa.jpg',21.95,10.00,13) ;
-INSERT INTO tuote VALUES (13,'MAOL-taulukot','13-maol.jpg',41.95,21.00,14) ;
-INSERT INTO tuote VALUES (14,'Abi fysiikka','14-abi-fysiikka.jpg',39.95,20.00,14) ;
-INSERT INTO tuote VALUES (15,'Särmä kielenhuolto','15-sarma.jpg',15.95,6.00,14) ;
-INSERT INTO tuote VALUES (16,'Mooli 1','16-mooli1.jpg',19.95,9.00,14) ;
-INSERT INTO tuote VALUES (17,'Bananagrams sanapeli','17-banagrams.jpg',15.95,6.00,15) ;
-INSERT INTO tuote VALUES (18,'Escape room family jungle perhepeli','18-escape-room.jpg',39.95,20.00,15) ;
-INSERT INTO tuote VALUES (19,'Original Alias','19-alias.jpg',27.95,15.00,15) ;
-INSERT INTO tuote VALUES (20,'Vink','20-vink.jpg',39.95,20.00,15) ;
+INSERT INTO tuote VALUES (1,'Pipsa Possun 5 minuutin iltasadut','1-pipsa-possu.jpg',21.95,10.00,11,"Muhkea satukirja kaikille Pipsan ystäville! Kymmenen iltasatua, joiden jälkeen uni tulee hyvin.") ;
+INSERT INTO tuote VALUES (2,'Risto Räppääjä ja lapsenvahti','2-risto-rappaaja.jpg',19.95,8.00,11,"Luvassa on jälleen hauskaa tilannekomiikkaa, kun Risto Räppääjän lapsenvahdiksi pestataan Lennart Lindberg. Teos pohjautuu Risto Räppääjä ja vauva -nimiseen näytelmään.");
+INSERT INTO tuote VALUES (3,'Joulupukki ja noitarumpu','3-joulupukki.jpg',12.95,5.00,11,"Joulukylässä tapahtuu kummia. Kuka pani pippuria pipareihin? Kuka sammutti taivaalta revontulet? Miksi virus sotkee tietokoneohjelman juuri kun Joulupukki on löytämäisillään ratkaisun kiperään lahjapulmaan?") ;
+INSERT INTO tuote VALUES (4,'Älysatukirja Miina ja Manu eksyksissä','4-miinamanu.jpg',7.95,3.00,11,"Miina ja Manu -älysatukirjat ovat painettuja kuvakirjoja. Lähde mukaan seikkailuun ja opi samalla tärkeitä asioita metsässä liikkumisesta!") ;
+INSERT INTO tuote VALUES (5,'Hämähäkki','5-hamahakki.jpg',27.95,15.00,12,"Lars Keplerin suositun dekkarisarjan odotetussa yhdeksännessä osassa kohtaavat vetävä kerronta ja hyytävä jännitys. Sarjan päähenkilöitä ovat kovia kokenut mutta empaattinen suomalaistaustainen rikoskomisario Joona Linna ja hänen luottoparinsa Saga Bauer.") ;
+INSERT INTO tuote VALUES (6,'Auroran salaisuus','6-auroran-salaisuus.jpg',27.95,15.00,12,"Lucinda Rileyn romaani Auroran salaisuus vie tarinan siivin Irlantiin keskelle mehevää perhedraamaa, jossa yhdistyvät kahden eri suvun salaisuudet. Luvassa on jylhiä maisemia, vuosisadan mittaisia salaisuuksia sekä mystisiä tunnelmia.") ;
+INSERT INTO tuote VALUES (7,'Sysimusta sydän','7-sysimusta-sydan.jpg',28.95,16.00,12,"Ylistetty jännityssarja jatkuu! Yksityisetsivä Cormoran Strike ja tämän työpari Robin Ellacott ovat jälleen piinaavan mutkikkaan tapauksen äärellä.") ;
+INSERT INTO tuote VALUES (8,'Mielensäpahoittajan rakkaustarina','8-mielensapahoittaja.jpg',25.95,14.00,12,"Mielensäpahoittajan tutuksi käynyttä lempeää äkäilyä on jälleen luvassa, kun Tuomas Kyrön Mielensäpahoittajan rakkaustarina käsittelee luopumisen, löytämisen, uskaltamisen ja rakastumisen teemoja.") ;
+INSERT INTO tuote VALUES (9,'Kirjosukkakirja','9-kirjosukkakirja.jpg',27.95,15.00,13,"Kirjoneuleen mestari yllättää taas! Valloittavassa kirjassa on 20 erilaista kirjoneulesukkaa, mutta vain yksi neuleohje! Jos osaat tehdä yhdet tämän kirjan sukat, osaat tehdä ne kaikki.") ;
+INSERT INTO tuote VALUES (10,'Aivokirurgin muistelmat','10-aivokirurgi.jpg',30.95,19.00,13,"Avoin ja mielenkiintoinen puheenvuoro avaa aivokirurgin uran huippuja ja haasteita. Juha Hernesniemi kertoo avoimesti, millaista on olla yksi parhaista maailman stressaavimmassa ammatissa ja mikä oli menestyksen hinta.");
+INSERT INTO tuote VALUES (11,'Mitä Missä Milloin 2023','11-mita-missa-milloin.jpg',17.95,6.00,13,"Vuosikirja kertoo menneen vuoden tärkeät tapahtumat luotettavasti sanoin ja kuvin. MMM sopii lahjaksi kaikille tiedon ystäville.") ;
+INSERT INTO tuote VALUES (12,'Muistijumppaa','12-muistijumppaa.jpg',21.95,10.00,13,"Muisti kaipaa säännöllistä harjoittelua. Muistijumppaa tarjoaa 75 harjoituksen treeniohjelman muistin tukemiseen. Kirjan tehtävien ratkominen on hauskaa, tarpeellista ja tuloksellista ehkäisytoimintaa muistin ylläpitämiseksi.") ;
+INSERT INTO tuote VALUES (13,'MAOL-taulukot','13-maol.jpg',41.95,21.00,14,"MAOL-taulukot on uudistunut. Sen tietoja on tarkistettu, päivitetty, täydennetty ja osaksi myös karsittu. Kukin oppiaine muodostaa edelleen oman kokonaisuutensa.") ;
+INSERT INTO tuote VALUES (14,'Abi fysiikka','14-abi-fysiikka.jpg',39.95,20.00,14,"Abi Fysiikka kertaa lukion kurssit tehokkaasti. Kirja soveltuu sekä luokkakäyttöön että itsenäiseen opiskeluun. Tiivistetty teoria ja neuvovat esimerkit auttavat opiskelijaa ylioppilaskokeeseen valmistautumisessa.") ;
+INSERT INTO tuote VALUES (15,'Särmä kielenhuolto','15-sarma.jpg',15.95,6.00,14,"Särmä Kielenhuollossa kerrataan peruskielenhuollon ohjeet välimerkeistä kongruenssiin. Lisäksi aiheina ovat muun muassa tekstin sidosteisuus, tyyli ja aineiston lainaaminen.") ;
+INSERT INTO tuote VALUES (16,'Mooli 1','16-mooli1.jpg',19.95,9.00,14,"Mooli 1 jatkaa peruskoulussa aloitettua matkaa kemian ilmiöihin ja luonnontieteelliseen ajatteluun. Kirjassa tutustutaan aineen rakenteeseen ja ominaisuuksiin niin solutasolla kuin maailmankaikkeuden mittakaavassa.") ;
+INSERT INTO tuote VALUES (17,'Bananagrams sanapeli','17-banagrams.jpg',15.95,6.00,15,"Sanapelien parhaimmistoa! Bananagramsissa kaikki pelaajat tekevät omaa sanaristikkoa samanaikaisesti, omaa vuoroa ei tarvitse odottaa. Kun kirjaimet loppuu, se kenen sanaristikko oli ensinnä valmis ja koottu hyväksyttävistä sanoista voittaa kierroksen. ");
+INSERT INTO tuote VALUES (18,'Escape room family jungle perhepeli','18-escape-room.jpg',39.95,20.00,15,"Ratkaise viidakkoaiheisen pakohuonepelin vapauttava koodi ennen kuin aika loppuu.") ;
+INSERT INTO tuote VALUES (19,'Original Alias','19-alias.jpg',27.95,15.00,15,"Aitoa ja alkuperäistä Aliasta pelataan joukkueessa, ja ensimmäinen joukkue maalissa voittaa. Pelissä on 3200 selitettävää sanaa, joten sitä ei pelata loppuun aivan hetkessä.") ;
+INSERT INTO tuote VALUES (20,'Vink','20-vink.jpg',39.95,20.00,15,"VINK on seurapeli, jossa joukkuekaverisi yrittävät arvata, mitä ihmettä heille vinkkaat! Peli haastaa vinkkaamaan piirtämällä, selittämällä, näyttelemällä ja hyräilemällä asioita kaiken maailman aihepiireistä.") ;
 
 create table asiakas (
 asid INT PRIMARY KEY AUTO_INCREMENT,
@@ -131,10 +132,3 @@ INSERT INTO tilausrivi VALUES (24,110,7,1);
 INSERT INTO tilausrivi VALUES (25,110,9,2);	
 
 
-CREATE TABLE newuser(
-    userid int (12) AUTO_INCREMENT,
-    email VARCHAR (100) UNIQUE NOT NULL,
-    password VARCHAR (100) NOT NULL,
-CONSTRAINT PK_USER PRIMARY KEY (userid));
-
-INSERT INTO newuser VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22');
