@@ -46,20 +46,14 @@ INSERT INTO tuote VALUES (19,'Original Alias','19-alias.jpg',27.95,15.00,15) ;
 INSERT INTO tuote VALUES (20,'Vink','20-vink.jpg',39.95,20.00,15) ;
 
 create table asiakas (
-asid CHAR(6) PRIMARY KEY,
-asnimi CHAR(20) NOT NULL,
+asid INT PRIMARY KEY AUTO_INCREMENT,
+asnimi VARCHAR(50) NOT NULL,
 sposti VARCHAR(50) NOT NULL UNIQUE,
 salasana VARCHAR (50) NOT NULL,
-puhnro INT (20) NOT NULL UNIQUE
-);
-
-CREATE TABLE posti	(
-FOREIGN KEY (asid)
-REFERENCES asiakas (asid),
-osoite VARCHAR(50) PRIMARY KEY,
-postitmp CHAR(50) NOT NULL,
-postinro CHAR(5) NOT NULL,
-asid CHAR(6) NOT NULL UNIQUE
+puhnro INT (20) NOT NULL UNIQUE,
+osoite VARCHAR(50) NOT NULL,
+postitmp VARCHAR(50) NOT NULL,
+postinro VARCHAR(5) NOT NULL
 );
 
 INSERT INTO asiakas VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22',0469452622);	 
@@ -79,11 +73,10 @@ INSERT INTO posti VALUES ('Konttilukinkatu 23', 'Tampere', '23900','6');
 INSERT INTO posti VALUES ('Korkalonkatu 17', 'Rovaniemi', '96200','7');
 
 create table tilaus (
-tilausnro INTEGER NOT NULL PRIMARY KEY,
-asid CHAR(6) NOT NULL, 
-tilauspvm DATETIME NOT NULL,
-toimitustapa CHAR(25) NOT NULL,
-tila CHAR(25),
+tilausnro INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+tilauspvm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+asid INT NOT NULL, 
+index asid(asid),
 CONSTRAINT tilaus_asiakas_fk FOREIGN KEY (asid) 
 	REFERENCES asiakas (asid)
 );
@@ -101,12 +94,14 @@ INSERT INTO tilaus VALUES (110,'4','2022-11-17','DB schenker','Maksettu');
 
 create table tilausrivi (
 tilausnro INTEGER NOT NULL,
-rivinro SMALLINT NOT NULL,
-tuotenro INTEGER, 
+index tilausnro(tilausnro),
+foreign key (tilausnro) references tilaus(tilausnro),
+rivinro SMALLINT NOT NULL, 
 kpl INTEGER,
+tuotenro int not null,
+index tuotenro(tuotenro),
 CONSTRAINT tilausrivi_pk PRIMARY KEY (tilausnro, rivinro),
-CONSTRAINT tilausrivi_tuote_fk FOREIGN KEY (tuotenro) 
-           REFERENCES tuote (tuotenro)
+foreign key (tuotenro) references tuote(tuotenro)
 );
 
 INSERT INTO tilausrivi VALUES (1,101,20,2); 	
