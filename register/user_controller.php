@@ -5,25 +5,28 @@
 // Add new user
     function registerUser($username,$email,$password){
         $db = openDb();
-        $password = password_hash($password, PASSWORD_DEFAULT);
+     
 
         $sql ="INSERT INTO newuser(username,email, password) VALUES(?,?,?)";
         $statement =$db->prepare($sql);
         $statement->execute(array($username,$email, $password));
     }
 
-    // check creadentials and return username , authenticarion nor 0
+    // check credentials and return username , authenticarion nor 0
 
     function checkNewuser($username, $email, $password){
         $db = openDb();
 
         $sql ="SELECT password FROM newuser WHERE username=? AND email =?";
         $statement =$db->prepare($sql);
-        $statement->execute(array($username));
+        $statement->execute(array($username, $email));
 
-        $hashedpw = $statement->fetchColumn();
+      $hashedpw = $statement->fetchColumn();
         if(isset($hashedpw)){
-            return password_verify($password, $hashedpw) ?$username : null;
+           // return password_verify($password, $hashedpw) ?$username : null;
+            if ($password==$hashedpw){
+                return $username;
+            }
 
         }
         return null;

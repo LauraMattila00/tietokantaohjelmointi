@@ -1,11 +1,11 @@
 <?php 
-    require_once '../inc/functions.php';
+    /*require_once '../inc/functions.php';
     require_once '../inc/headers.php';
     session_start();
     require_once ('./user_controller.php');
 
 
-    $body = file_get_contents("php://input");
+    $body = file_get_contents('php://input');
     $newuser = json_decode($body);
 
     if(!isset($newuser->username) || !isset($newuser->email)|| !isset($newuser->password)){
@@ -22,7 +22,39 @@ $_SESSION['email'] = $newuser->email;
 $_SESSION['password'] = $newuser->password;
 
 http_response_code('200');
-echo "Newuser" .$newuser->username."registered";
+echo "Newuser" .$newuser->username."registered";*/
+
+require_once '../inc/functions.php';
+    require_once '../inc/headers.php';
+    session_start();
+    require_once ('./user_controller.php');
+    
+
+$postdata = file_get_contents("php://input");
+$db = openDb();
+
+
+if(isset($postdata) && !empty($postdata)){
+    $request = json_decode($postdata);
+     
+     
+    $username = $request->username;
+    $email = $request->email;
+    $password = $request->password;
+    $sql = "INSERT INTO newuser(username,email,password) VALUES ('$username','$email','$password')";
+  //  if(mysqli_query($db,$sql)){
+    if(executeInsert($db,$sql)){
+        http_response_code(201);
+    }
+    else{
+         http_response_code(422); 
+    }
+         
+}
+
+
+
+
 
 
 
