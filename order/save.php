@@ -5,6 +5,7 @@ require_once '../inc/headers.php';
 
 $db = null;
 
+// Read input as JSON.
 $input = json_decode(file_get_contents('php://input'));
 $asnimi = filter_var($input->asnimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $osoite = filter_var($input->osoite, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -36,12 +37,12 @@ try {
     $tilausnro = executeInsert($db,$sql);
 
     // Insert order rows.
-    foreach ($cart as $product) {
+    foreach ($cart as $tuote) {
 
         $sql = "INSERT INTO tilausrivi (tilausnro,tuotenro) VALUES ("
     .
         $tilausnro . "," .
-        $product->tuotenro   
+        $tuote->tuotenro   
     .   ")";
     executeInsert($db,$sql);
 

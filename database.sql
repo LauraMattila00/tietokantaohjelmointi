@@ -49,9 +49,9 @@ INSERT INTO tuote VALUES (20,'Vink','20-vink.jpg',39.95,20.00,15,"VINK on seurap
 create table asiakas (
 asid INT PRIMARY KEY AUTO_INCREMENT,
 asnimi VARCHAR(50) NOT NULL,
-sposti VARCHAR(50) NOT NULL UNIQUE,
+sposti VARCHAR(50) NOT NULL,
 salasana VARCHAR (50) NOT NULL,
-puhnro INT (20) NOT NULL UNIQUE,
+puhnro INT (20) NOT NULL,
 osoite VARCHAR(50) NOT NULL,
 postitmp VARCHAR(50) NOT NULL,
 postinro VARCHAR(5) NOT NULL
