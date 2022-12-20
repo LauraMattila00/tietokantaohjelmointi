@@ -57,14 +57,15 @@ postitmp VARCHAR(50) NOT NULL,
 postinro VARCHAR(5) NOT NULL
 );
 
-INSERT INTO asiakas VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22',0469452622);	 
-INSERT INTO asiakas VALUES ('2','Matti Meikäläinen','mattimeikäläinen@gmail.com','HuomentaSuomi71',0448786456);	
-INSERT INTO asiakas VALUES ('3','Maija Tepponen','maijatepponen@gmail.com','Helena1234',0416799001); 	
-INSERT INTO asiakas VALUES ('4','Kalle Kaljasieppo','kallekaljasieppo@gmail.com','Qwerty2022',0453735634); 	
-INSERT INTO asiakas VALUES ('5','Petra Karjalainen','petrakarjalainen12@gmail.com','Salasana1234',0449383233); 	
-INSERT INTO asiakas VALUES ('6','Irma Heikkilä','irmaheikkilä@gmail.com','IrmaHeikkilä1970',0412448899); 	
-INSERT INTO asiakas VALUES ('7','Jussi Korhonen','jussikorhonen@gmail.com','JussiNPassWorD2020',0462137845);
+INSERT INTO asiakas VALUES ('1','Kalle Kuoma','kallekuoma@gmail.com','MerenKaupunki22','0469452622','Raitamäentie 14','Helsinki',00950);	 
+INSERT INTO asiakas VALUES ('2','Matti Meikäläinen','mattimeikäläinen@gmail.com','HuomentaSuomi71','0448786456','Peltolankaari 11', 'Oulu',90230);	
+INSERT INTO asiakas VALUES ('3','Maija Tepponen','maijatepponen@gmail.com','Helena1234','0416799001','Polettikuja 3', 'Oulu',90420); 	
+INSERT INTO asiakas VALUES ('4','Kalle Kaljasieppo','kallekaljasieppo@gmail.com','Qwerty2022','0453735634','Väinönkatu  15 ', 'Jyväskylä',40100); 	
+INSERT INTO asiakas VALUES ('5','Petra Karjalainen','petrakarjalainen12@gmail.com','Salasana1234','0449383233','Perhostie 9', 'Vaasa',65230); 	
+INSERT INTO asiakas VALUES ('6','Irma Heikkilä','irmaheikkilä@gmail.com','IrmaHeikkilä1970','0412448899','Konttilukinkatu 23', 'Tampere',23900); 	
+INSERT INTO asiakas VALUES ('7','Jussi Korhonen','jussikorhonen@gmail.com','JussiNPassWorD2020','0462137845','Korkalonkatu 17', 'Rovaniemi',96200);
 
+/*
 INSERT INTO posti VALUES ('Raitamäentie 14','Helsinki','00950','1');	
 INSERT INTO posti VALUES ('Peltolankaari 11', 'Oulu', '90230','2');	
 INSERT INTO posti VALUES ('Polettikuja 3', 'Oulu', '90420','3');	
@@ -72,16 +73,28 @@ INSERT INTO posti VALUES ('Väinönkatu  15 ', 'Jyväskylä', '40100','4');
 INSERT INTO posti VALUES ('Perhostie 9', 'Vaasa', '65230','5');	
 INSERT INTO posti VALUES ('Konttilukinkatu 23', 'Tampere', '23900','6');	
 INSERT INTO posti VALUES ('Korkalonkatu 17', 'Rovaniemi', '96200','7');
-
+*/
 create table tilaus (
 tilausnro INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-tilauspvm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-asid INT NOT NULL, 
+asid INT NOT NULL,
+tilauspvm TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 index asid(asid),
 CONSTRAINT tilaus_asiakas_fk FOREIGN KEY (asid) 
 	REFERENCES asiakas (asid)
 );
 
+INSERT INTO tilaus VALUES (101,'1','2022-11-20');							
+INSERT INTO tilaus VALUES (102,'4','2022-11-01');							
+INSERT INTO tilaus VALUES (103,'7','2022-11-14');							
+INSERT INTO tilaus VALUES (104,'3','2022-11-03');							
+INSERT INTO tilaus VALUES (105,'6','2022-11-17');							
+INSERT INTO tilaus VALUES (106,'2','2022-11-21');							
+INSERT INTO tilaus VALUES (107,'1','2022-11-06');							
+INSERT INTO tilaus VALUES (108,'5','2022-11-18');							
+INSERT INTO tilaus VALUES (109,'3','2022-11-20');							
+INSERT INTO tilaus VALUES (110,'4','2022-11-17');
+
+/* Vanha tilaus.
 INSERT INTO tilaus VALUES (101,'1','2022-11-20','Posti','Maksettu');							
 INSERT INTO tilaus VALUES (102,'4','2022-11-01','DB schenker','Ei maksettu');							
 INSERT INTO tilaus VALUES (103,'7','2022-11-14','Posti','Ei maksettu');							
@@ -91,20 +104,32 @@ INSERT INTO tilaus VALUES (106,'2','2022-11-21','DB schenker','Maksettu');
 INSERT INTO tilaus VALUES (107,'1','2022-11-06','Posti','Ei maksettu');							
 INSERT INTO tilaus VALUES (108,'5','2022-11-18','DB schenker','Maksettu');							
 INSERT INTO tilaus VALUES (109,'3','2022-11-20','Posti','Maksettu');							
-INSERT INTO tilaus VALUES (110,'4','2022-11-17','DB schenker','Maksettu');							
+INSERT INTO tilaus VALUES (110,'4','2022-11-17','DB schenker','Maksettu');
+*/
+create table tilausrivi (
+rivinro SMALLINT NOT NULL,
+tilausnro INTEGER NOT NULL,
+index tilausnro(tilausnro),
+foreign key (tilausnro) references tilaus(tilausnro),
+tuotenro int not null, 
+kpl INTEGER,
+index tuotenro(tuotenro),
+foreign key (tuotenro) references tuote(tuotenro)
+);
 
+/* Vanha tilausrivi.
 create table tilausrivi (
 tilausnro INTEGER NOT NULL,
 index tilausnro(tilausnro),
 foreign key (tilausnro) references tilaus(tilausnro),
-rivinro SMALLINT NOT NULL, 
+rivinro SMALLINT NOT NULL,
+tuotenro int not null, 
 kpl INTEGER,
-tuotenro int not null,
 index tuotenro(tuotenro),
 CONSTRAINT tilausrivi_pk PRIMARY KEY (tilausnro, rivinro),
 foreign key (tuotenro) references tuote(tuotenro)
 );
-
+*/
 INSERT INTO tilausrivi VALUES (1,101,20,2); 	
 INSERT INTO tilausrivi VALUES (2,101,10,1); 	
 INSERT INTO tilausrivi VALUES (3,101,16,2); 	
