@@ -155,3 +155,10 @@ INSERT INTO tilausrivi VALUES (22,109,8,2);
 INSERT INTO tilausrivi VALUES (23,109,15,1);	
 INSERT INTO tilausrivi VALUES (24,110,7,1);	
 INSERT INTO tilausrivi VALUES (25,110,9,2);	
+
+
+CREATE TABLE newuser (
+    username VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255),
+    pw VARCHAR(255)
+);

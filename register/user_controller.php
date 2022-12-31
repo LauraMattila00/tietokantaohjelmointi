@@ -7,27 +7,23 @@
         $db = openDb();
      
 
-        $sql ="INSERT INTO newuser(username,email, password) VALUES(?,?,?)";
+        $sql ="INSERT INTO newuser(username,email, pw) VALUES(?,?,?)";
         $statement =$db->prepare($sql);
         $statement->execute(array($username,$email, $password));
     }
 
     // check credentials and return username , authenticarion nor 0
 
-    function checkNewuser($username, $email, $password){
+    function checkNewuser($username, $password){
         $db = openDb();
 
-        $sql ="SELECT password FROM newuser WHERE username=? AND email =?";
+        $sql ="SELECT pw FROM newuser WHERE username=?";
         $statement =$db->prepare($sql);
-        $statement->execute(array($username, $email));
+        $statement->execute(array($username));
 
       $hashedpw = $statement->fetchColumn();
         if(isset($hashedpw)){
-           // return password_verify($password, $hashedpw) ?$username : null;
-            if ($password==$hashedpw){
-                return $username;
-            }
-
+           return password_verify($password, $hashedpw) ? $username : null;
         }
         return null;
     }
